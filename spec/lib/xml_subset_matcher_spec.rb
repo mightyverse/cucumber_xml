@@ -1,3 +1,4 @@
+# (c) 2009 Mightyverse, Inc.  Use is subject to license terms.
 require File.dirname(__FILE__) + '/../spec_helper'
 require 'nokogiri'
 
