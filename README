@@ -4,10 +4,14 @@ Dependencies
 Rails (you could run these steps with older versions of Rails, but this app was generated with 2.3.2)
 
 sudo gem install rspec rspec-rails cucumber webrat
+sudo gem install xmlsubsetmatcher
 
-Steps for crating this project
+Steps for creating this project
 -------------------------------
 rails cucumber_xml
 ./script/generate scaffold project name:string notes:text complete:boolean
 ruby script/generate cucumber
+write a feature description and run it:
+   features/project_create_xml.feature
+   rake features
 
