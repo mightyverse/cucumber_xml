@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projects>
+  <project>
+    <name>One</name>
+    <notes>Text for Project One</notes>
+    <complete>false</complete>
+  </project>
+  <project>
+    <name>Two</name>
+    <notes>Text for Project Two which is complete</notes>
+    <complete>true</complete>
+  </project>
+</projects>

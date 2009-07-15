@@ -1,5 +1,4 @@
 # (c) 2009 Mightyverse, Inc.  Use is subject to license terms.
-
 Given /^an XML post body "(\w+)" defined as follows:$/ do |post_body_var, post_body_data|
   instance_variable_set('@'+post_body_var, post_body_data)  # set an @... variable
 end
@@ -109,3 +108,26 @@ And /^the response has an? <(\S+)> tag$/ do |tag|
   response.should have_tag(tag)
 end
 
+Then /^the response header Content-Type matches ([\/\w]+)$/ do |content_type|
+  response.headers['Content-Type'].should match(%r{#{content_type}})
+end
+
+Then /^the response should be a superset of the post body "(\w+)"$/ do |post_body_var|
+  post_body = instance_variable_get('@'+post_body_var)
+  post_body.should be_xml_subset_of(response.body)
+end
+
+Then /^the response should be a superset of:$/ do |xml_body|
+  xml_body.should be_xml_subset_of(response.body)
+end
+
+Then /^the response should be a superset of the file: "?([^"]+)"?$/ do |path|
+  path = File.join(File.dirname(__FILE__), '..', path)
+  announce path
+  File.exists?(path).should be_true
+  File.open(path) do |f|
+    file_body = f.read
+    file_body.should_not be_blank
+    file_body.should be_xml_subset_of(response.body)
+  end
+end

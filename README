@@ -15,3 +15,20 @@ write a feature description and run it:
    features/project_create_xml.feature
    rake features
 
+write a feature description that references an XML fixture, and DB fixture data to match:
+  features/project_xml.feature
+  features/xml/projects.xml
+  test/fixtures/projects.yml
+
+  note that cucumber has its own RAILS_ENV
+  to see what cucumber sees:
+    rake db:fixtures:load RAILS_ENV=cucumber
+    ./script/server -e cucumber
+
+  configure xmlsubsetmatcher
+  add the following line to the botton of /features/support/env.rb
+      World(CustomMatchers)
+  add the following to your environment.rb (not sure why latest nokogiri goesn't work for me):
+      config.gem "nokogiri", :version => '=1.2.3'
+  
+
