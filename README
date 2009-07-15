@@ -31,4 +31,10 @@ write a feature description that references an XML fixture, and DB fixture data 
   add the following to your environment.rb (not sure why latest nokogiri goesn't work for me):
       config.gem "nokogiri", :version => '=1.2.3'
   
+add doc index
+  feature/support/doc_xml.rb
+  cd feature/support
+  ruby doc_xml.rb
+  open ../doc/index.html
+
 
