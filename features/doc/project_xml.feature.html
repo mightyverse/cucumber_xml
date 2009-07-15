@@ -1,0 +1,10 @@
+<html><body>Feature: Project XML API<br/>
+  In order to read project data data<br/>
+  As a device or client application using the XML REST interface<br/>
+  I want to make GET requests to the /projects URL<br/>
+<br/>
+  Scenario: Get Medium<br/>
+    When I send an XML GET to /projects.xml<br/>
+    Then I get a 200 (success) status result<br/>
+    And the response header Content-Type matches application/xml<br/>
+    And the response should be a superset of the file: <a href="../xml/projects.xml">xml/projects.xml</a><br/></body></html>

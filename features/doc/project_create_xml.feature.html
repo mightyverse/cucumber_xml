@@ -1,0 +1,19 @@
+<html><body>Feature: Project Create XML API<br/>
+  In order to create projects<br/>
+  As a device or client application using the XML REST interface<br/>
+  I want to make POST requests to the /projects URL<br/>
+<br/>
+Scenario: Create Project with all fields that a client may define<br/>
+  When I send an XML POST to /projects and HTTP header: Accept=application/xml and post body:<br/>
+  &quot;&quot;&quot;<br/>
+    &lt;project&gt;<br/>
+      &lt;name&gt;Awesome&lt;/name&gt;<br/>
+      &lt;notes&gt;super cool nifty&lt;/notes&gt;<br/>
+      &lt;complete &gt;false&lt;/complete&gt;<br/>
+    &lt;/project&gt;<br/>
+  &quot;&quot;&quot;<br/>
+  And I get a 201 (created) status result<br/>
+  And a Project instance with name=&quot;Awesome&quot; exists on the server<br/>
+  Then I get an 'application/xml' response<br/>
+<br/>
+<br/></body></html>
