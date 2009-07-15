@@ -4,7 +4,6 @@ Dependencies
 Rails (you could run these steps with older versions of Rails, but this app was generated with 2.3.2)
 
 sudo gem install rspec rspec-rails cucumber webrat
-sudo gem install xmlsubsetmatcher
 
 Steps for creating this project
 -------------------------------
@@ -37,4 +36,27 @@ add doc index
   ruby doc_xml.rb
   open ../doc/index.html
 
+---------
+   TODO
+---------
+* make doc output nicer with some css
+* make xmlsubsetmatcher a gem: I started this but must be missing something basic
+    http://github.com/mightyverse/xml_subset_matcher/tree/master
+
+    master $ gem build xmlsubsetmatcher.gemspec
+    WARNING:  no rubyforge_project specified
+    WARNING:  description and summary are identical
+    Successfully built RubyGem
+    Name: xmlsubsetmatcher
+    Version: 0.0.3
+    File: xmlsubsetmatcher-0.0.3.gem
+    master $ irb
+    >> require 'rubygems'
+    => false
+    >> require 'xmlsubsetmatcher'
+    LoadError: no such file to load -- xmlsubsetmatcher
+        from /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+        from /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+        from (irb):2
+    >> 
 
