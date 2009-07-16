@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projects>
+  <total>2</total>
   <project>
     <name>One</name>
     <notes>Text for Project One</notes>

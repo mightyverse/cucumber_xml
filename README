@@ -29,6 +29,12 @@ write a feature description that references an XML fixture, and DB fixture data 
       World(CustomMatchers)
   add the following to your environment.rb (not sure why latest nokogiri goesn't work for me):
       config.gem "nokogiri", :version => '=1.2.3'
+
+  in this case, the feature scenario describes xml which is a superset
+  of the default to_s, so it fails. (there is a node under the projects root
+  <total> which declares how many projects there are in the list.
+  To make it pass, add an xml builder file:
+     views/projects/index.xml.builder
   
 add doc index
   feature/support/doc_xml.rb
@@ -40,6 +46,7 @@ add doc index
    TODO
 ---------
 * make doc output nicer with some css
+* improve error reporting when XML documents don't match
 * make xmlsubsetmatcher a gem: I started this but must be missing something basic
     http://github.com/mightyverse/xml_subset_matcher/tree/master
 
